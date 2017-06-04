@@ -103,3 +103,8 @@ In order to complete this assignment, you must do the following:
 ### Grading
 
 This assignment will be graded via peer assessment.
+
+
+### Finished the Assignment
+
+Assignment is finished as per the instructions provided using RStudio development and testing done with a 2 by 2 matrix
