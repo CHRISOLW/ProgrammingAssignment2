@@ -1,39 +1,42 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## makeCacheMatrix returns a vector of functions  
+## set and get will set and get the Original Matrix
+## setInvMatrix and getInvMatrix will and get the Inverse Matrix
 
 makeCacheMatrix <- function(x = matrix()) {
   
-  invMatrix <- NULL
+  invGMatrix <- NULL
   set <- function(y) {
     x <<- y
-    invMatrix <<- NULL
+    invGMatrix <<- NULL
   }
   get <- function() x
-  setinv <- function(invX) invMatrix <<- invX
-  getinv <- function() invMatrix
+  setInvMatrix <- function(invLMatrix) invGMatrix <<- invLMatrix
+  getInvMatrix <- function() invGMatrix
   list(set = set, get = get,
-       setinv = setinv,
-       getinv = getinv)
+       setInvMatrix = setInvMatrix,
+       getInvMatrix = getInvMatrix)
 
 }
 
 
-## Write a short comment describing this function
+## cacheSolve is the function that will covert the martrix to inverse 
+## cacheSolve will also the cache the inversed matrix 
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
   
   
-  invMatrix <- x$getinv()
-  if(!is.null(invMatrix)) {
+  invGMatrix <- x$getInvMatrix()
+  if(!is.null(invGMatrix)) {
     message("getting cached data")
-    return(invMatrix)
+    return(invGMatrix)
   }
   data <- x$get()
-  invMatrix <- solve(data, ...)
-  x$setinv(invMatrix)
-  invMatrix
+  invGMatrix <- solve(data, ...)
+  x$setInvMatrix(invGMatrix)
+  invGMatrix
   
 }
